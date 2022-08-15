@@ -6,6 +6,11 @@ To be used in linux server/workstation only
 
 ## Requierements
 
-youtube-dl from [here](https://github.com/ytdl-org/youtube-dl)
+youtube-dl from [here](https://github.com/ytdl-org/youtube-dl) or use following script
+
+```bash
+sudo wget https://yt-dl.org/downloads/latest/youtube-dl -O /usr/local/bin/youtube-dl
+sudo chmod a+rx /usr/local/bin/youtube-dl
+```
 
 Must be used on WebServer with _php_ support
