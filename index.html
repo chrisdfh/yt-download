@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <base href=".">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>YT-Downloader</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row pb-5">
+            <div class="col-12">
+                <div class="veil d-none">
+                    <div class="s-container position-relative">
+                        <div class="spinner-border">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="input-group mb-3 pt-4">
+                    <input id="inputURL" type="text" class="form-control" placeholder="URL de Youtube" >
+                    <span class="btn btn-primary input-group-text" onclick="getData()">Buscar</span>
+                </div>
+
+                <div class="dl-data d-none">
+
+                    <div class="pt-4 img-thumb">
+                        <img id="img-thumb" src="" alt="" class="w-100">
+                    </div>
+                    <div id="title" class="title  pt-4">
+                        <span>
+                            <h2 class="data-container">
+                            </h2>
+                        </span>
+                        <span>
+                            <h2 id="time"></h2>
+                        </span>
+                    </div>
+                    <div class="description pt-3 txt-small" id="desc">
+                    </div>
+                    <button id="more-less" class="btn btn-text mt-2" onclick="moreDesc()">More</button>
+                    <table class="w-100 mt-5 table table-striped text-center">
+                        <thead>
+                            <tr>
+                                <th>
+                                    Format ID
+                                </th>
+                                <th>
+                                    Format
+                                </th>
+                                <th>
+                                    Extension
+                                </th>
+                                <th>
+                                    Cont
+                                </th>
+                                <th>
+                                    Size
+                                </th>
+                                <th>
+                                    Download
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody">
+
+                        </tbody>
+                    </table>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+<script src="script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
+</html>
