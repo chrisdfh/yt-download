@@ -28,3 +28,26 @@ span{
     transition-property: all;
     overflow: hidden;
 }
+.tag{
+    background-color: #003132;
+    padding:2px 4px;
+    border-radius: 3px;
+    color:white;
+    margin: 4px;
+    display: inline-flex;
+    font-size: 14px;
+    text-transform: capitalize;
+    transform: skewX(-10deg);
+
+}
+#chapters{
+    --bs-gutter-x:0;
+}
+.chapter {
+	text-decoration: navajowhite;
+	color: #002129;
+	line-height: 1.2;
+	border: 1px solid lightblue;
+	margin: 2px;
+	--bs-gutter-x: 0;
+}
