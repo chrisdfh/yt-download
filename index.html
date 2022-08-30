@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" ></script>
     <link rel="stylesheet" href="style.css?v=<?=rand()?>">
     <title>YT-Downloader</title>
 </head>
@@ -29,7 +31,7 @@
                     <div class="row">
                         <div class="col-md-8">
                             <div class="pt-4 img-thumb" id="video-container">
-                                <img id="img-thumb" src="" alt="" class="w-100">
+                                <img onload="chapterHeight()" id="img-thumb" src="" alt="" class="w-100">
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -80,7 +82,7 @@
                                     Size
                                 </th>
                                 <th>
-                                    Download
+                                    Download / Show Link
                                 </th>
                             </tr>
                         </thead>
@@ -93,8 +95,33 @@
             </div>
         </div>
     </div>
-    
+
+    <!-- Modal -->
+<div class="modal fade" id="urlModal" tabindex="-1" aria-labelledby="urlModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="urlModalLabel">Video URL</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <input type="text" class="form-control" id="input-modal-url">
+      </div>
+      <div class="modal-footer">
+        <button type="button" onclick="copyClipboard('input-modal-url')" class="btn btn-primary"><i class="fa-solid fa-copy"></i> Copy</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fa-solid fa-arrow-right-from-bracket"></i> Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+</script>
+
+
 </body>
+
+
 <script src="script.js?v=<?=rand()?>"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
 

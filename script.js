@@ -4,6 +4,8 @@ const length = document.querySelector("#time");
 const desc = document.querySelector("#desc");
 const veil = document.querySelector(".veil");
 const btnMore = document.querySelector("#more-less");
+
+const myModal = new bootstrap.Modal(document.getElementById('urlModal'))
 var url = ''
 
 var ytData;
@@ -50,6 +52,7 @@ function printData(data) {
     //AGREGO LINK PARA VER EN YOUTUBE
     const ytLink = document.querySelector('#link-yt')
     ytLink.href = ytData.webpage_url
+    ytLink.target='_blank'
     url = ytData.webpage_url
 
 
@@ -72,10 +75,12 @@ const printTags = (tags)=>{
     const tagsC = document.querySelector('#tags')
     tagsC.innerHTML=''
     tags.forEach((tag)=>{
-        var tagContainer = document.createElement('div')
+        var tagContainer = document.createElement('a')
         tagContainer.classList.add('tag')
         tagContainer.innerText = tag
+        tagContainer.href=`https://www.youtube.com/results?search_query=${tag}`
         tagsC.append(tagContainer)
+        tagContainer.target='_blank'
     })
 }
 const printChapters = (chapters)=>{
@@ -148,7 +153,8 @@ function drawTable(data) {
                     ${format.filesize ? Math.floor(format.filesize / (1024 * 1024)) + "MB" : "No Data"}
                 </td>
                 <td>
-                    <a href="${format.url}" target="_blank" class="btn btn-primary">Download</a>
+                    <a href="${format.url}" target="_blank" class="btn btn-primary"><i class="fa-solid fa-download"></i></a>
+                    <button onclick="modal('${format.url}')" target="_blank" class="btn btn-primary"><i class="fa-solid fa-link"></i></button>
                 </td>
             </tr>
             `;
@@ -159,13 +165,13 @@ function drawTable(data) {
 function msgAudioVideo(format) {
     let msg = null;
     if (format.acodec != "none") {
-        msg = "Audio";
+        msg = '<i class="fa-solid fa-headphones"></i>';
     }
     if (format.vcodec != "none") {
         if (msg) {
-            msg += " + Video";
+            msg += ' + <i class="fa-solid fa-video"></i>';
         } else {
-            msg = "Video";
+            msg = '<i class="fa-solid fa-video"></i>';
         }
     }
     return msg;
@@ -208,3 +214,18 @@ onresize = () => {
     console.log('resized')
     chapterHeight()
 };
+
+function modal(url){
+    const urlModal = document.querySelector('#input-modal-url')
+    urlModal.value = url;
+    resp = myModal.show()
+}
+
+function copyClipboard(e){
+    const inputToCopy = document.querySelector(`#${e}`)
+    inputToCopy.select()
+    inputToCopy.setSelectionRange(0, 99999);
+    navigator.clipboard.writeText(inputToCopy.value);
+    myModal.hide()
+
+}

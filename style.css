@@ -38,7 +38,11 @@ span{
     font-size: 14px;
     text-transform: capitalize;
     transform: skewX(-10deg);
-
+    text-decoration: none;
+    transition: all 0.3s;
+}
+.tag:hover{
+    color:azure
 }
 #chapters{
     --bs-gutter-x:0;
