@@ -47,6 +47,12 @@ span{
 #chapters{
     --bs-gutter-x:0;
 }
+.firma {
+    font-size: 0.8em;
+    position: fixed;
+    bottom: 15px;
+    left: 10px;
+}
 .chapter {
 	text-decoration: navajowhite;
 	color: #002129;

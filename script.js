@@ -4,6 +4,8 @@ const length = document.querySelector("#time");
 const desc = document.querySelector("#desc");
 const veil = document.querySelector(".veil");
 const btnMore = document.querySelector("#more-less");
+const toastLiveExample = document.getElementById('liveToast')
+const toast = new bootstrap.Toast(toastLiveExample)
 
 const myModal = new bootstrap.Modal(document.getElementById('urlModal'))
 var url = ''
@@ -227,5 +229,5 @@ function copyClipboard(e){
     inputToCopy.setSelectionRange(0, 99999);
     navigator.clipboard.writeText(inputToCopy.value);
     myModal.hide()
-
+    toast.show()
 }
